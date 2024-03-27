@@ -8,4 +8,7 @@ canvas {
     background: #000;
     display: block;
     margin: auto;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-width: 1024px;
 }
