@@ -5,7 +5,8 @@ body, html {
 }
 
 canvas {
-    background: #000;
+    background: url('assets/table.png') no-repeat center center;
+    background-size: cover;
     display: block;
     margin: auto;
     aspect-ratio: 16 / 9;
