@@ -1,4 +1,11 @@
-function initMenu(canvas, context, scaleFactor) {
+function initMenu(canvas, context) {
+    var scaleFactor = 1;
+    function calculateScaleFactor() {
+        scaleFactor = 1024 / Math.min(1024,window.innerWidth);
+    }
+    calculateScaleFactor();
+    window.addEventListener('resize', calculateScaleFactor);
+    
     context.imageSmoothingEnabled = false; // Pixel Art Scaling
     
     var kuhnButtonImg = new Image();
@@ -39,7 +46,7 @@ function initMenu(canvas, context, scaleFactor) {
             canvas.removeEventListener('click', handleClickForkuhnButton);
             context.clearRect(kuhnButton.x, kuhnButton.y, kuhnButton.width, kuhnButton.height);
             
-            kuhnGame();
+            kuhnGame(canvas, context);
         }
     }
     canvas.addEventListener('click', handleClickForkuhnButton);

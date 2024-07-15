@@ -208,7 +208,7 @@ class InformationSet():
         return np.where(x > 0, x, 0)
 
     def __str__(self):
-        strategies = ['{:03.2f}'.format(x)
+        strategies = ['{:03.4f}'.format(x)
                       for x in self.get_average_strategy()]
         return '{} {}'.format(self.key.ljust(6), strategies)
 
