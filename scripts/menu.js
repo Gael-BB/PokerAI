@@ -42,12 +42,17 @@ function initMenu(canvas, context) {
         var mouseY = (e.clientY - rect.top) * scaleFactor;
 
         if (mouseX > kuhnButton.x && mouseX < kuhnButton.x + kuhnButton.width && mouseY > kuhnButton.y && mouseY < kuhnButton.y + kuhnButton.height) {
-            canvas.removeEventListener('mousemove', handleMouseMoveForKuhnButton);
-            canvas.removeEventListener('click', handleClickForkuhnButton);
-            context.clearRect(kuhnButton.x, kuhnButton.y, kuhnButton.width, kuhnButton.height);
+            removeAll();
+            context.clearRect(0, 0, canvas.width, canvas.height);
             
             kuhnGame(canvas, context);
         }
     }
     canvas.addEventListener('click', handleClickForkuhnButton);
+
+    function removeAll(){
+        canvas.removeEventListener('mousemove', handleMouseMoveForKuhnButton);
+        canvas.removeEventListener('click', handleClickForkuhnButton);
+        window.removeEventListener('resize', calculateScaleFactor);
+    }
 }
