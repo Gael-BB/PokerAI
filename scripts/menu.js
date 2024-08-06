@@ -51,6 +51,7 @@ function initMenu(canvas, context) {
             if (mouseX > button.x && mouseX < button.x + button.width && mouseY > button.y && mouseY < button.y + button.height) {
                 removeAll();
                 context.clearRect(0, 0, canvas.width, canvas.height);
+                canvas.style.cursor = 'default';
 
                 if (button.img === kuhnButtonImg) {
                     kuhnGame(canvas, context);
